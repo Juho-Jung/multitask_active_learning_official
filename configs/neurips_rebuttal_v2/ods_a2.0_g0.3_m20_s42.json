@@ -1,0 +1,93 @@
+{
+  "dataset": "coco",
+  "coco_root": "./data/coco/images",
+  "coco_ann_file": "./data/coco/annotations/annotations/instances_train2017.json",
+  "coco_test_root": "./data/coco/images",
+  "coco_test_ann_file": "./data/coco/annotations/annotations/instances_val2017.json",
+  "tasks": [
+    "classification",
+    "detection",
+    "segmentation"
+  ],
+  "criteria": [
+    "hardness",
+    "consistency"
+  ],
+  "methods": [
+    "ours-2stage"
+  ],
+  "third_component_mode": "ctmi",
+  "ctmi_mode": "covariance_negative",
+  "ctmi_use_mc_dropout": true,
+  "ctmi_num_samples": 15,
+  "pool_factor": 20,
+  "num_rounds": 31,
+  "batch_size": 100,
+  "train_batch_size": 128,
+  "eval_batch_size": 128,
+  "unlabeled_pool_size": 5000,
+  "initial_labeled_size": 1000,
+  "num_classes": 80,
+  "num_boxes": 5,
+  "input_channels": 3,
+  "image_height": 224,
+  "image_width": 224,
+  "hidden_dim": 256,
+  "num_encoder_layers": 4,
+  "learning_rate": 0.001,
+  "num_epochs": 150,
+  "early_stopping_patience": 15,
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "lr_scheduler": "cosine",
+  "alpha": 2.0,
+  "beta": 0.0,
+  "gamma": 0.3,
+  "delta": 0.0,
+  "hardness_mode": "entropy",
+  "conflict_mode": "cosine",
+  "consistency_mode": "kl",
+  "diversity_mode": "euclidean",
+  "auto_balance_weights": false,
+  "adaptive_hyperparameter_scheduling": true,
+  "task_aware_weighting": true,
+  "adaptive_schedule": {
+    "early": {
+      "alpha_mult": 1.2,
+      "beta_mult": 0.3,
+      "gamma_mult": 0.3,
+      "delta_mult": 1.5
+    },
+    "mid": {
+      "alpha_mult": 1.1,
+      "beta_mult": 1.0,
+      "gamma_mult": 1.0,
+      "delta_mult": 1.0
+    },
+    "late": {
+      "alpha_mult": 0.9,
+      "beta_mult": 1.2,
+      "gamma_mult": 1.2,
+      "delta_mult": 1.0
+    }
+  },
+  "task_aware_sensitivity": 1.08,
+  "seed": 42,
+  "save_model_path": "./runs/neurips_rebuttal_v2/ods_a2.0_g0.3_m20_s42/checkpoints",
+  "loss_weights": {
+    "classification": 1.5,
+    "detection": 1.4,
+    "segmentation": 2.0
+  },
+  "oracle_metrics": {
+    "classification": {
+      "accuracy": 0.95
+    },
+    "detection": {
+      "accuracy": 0.9
+    },
+    "segmentation": {
+      "dice_mean": 0.7
+    }
+  }
+}

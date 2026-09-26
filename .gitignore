@@ -216,3 +216,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------
+# Project-specific
+# ---------------------------------------------------------------
+# Datasets and run outputs (created locally, see README)
+data/
+runs/
+results/
+
+# Model weights
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

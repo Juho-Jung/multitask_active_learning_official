@@ -1,0 +1,60 @@
+{
+  "dataset": "cityscapes",
+  "cityscapes_root": "./data/cityscapes",
+  "cityscapes_split": "train",
+  "cityscapes_test_split": "val",
+  "tasks": ["segmentation", "depth", "instance"],
+  "criteria": ["hardness", "conflict", "consistency"],
+  "methods": ["ours", "ours-ctmi", "random", "uncertainty", "diversity", "coreset", "badge", "batchbald", "clustering"],
+  "third_component_mode": "ctmi",
+  "num_rounds": 20,
+  "batch_size": 8,
+  "train_batch_size": 8,
+  "eval_batch_size": 8,
+  "unlabeled_pool_size": 2975,
+  "initial_labeled_size": 30,
+  "num_classes": 19,
+  "input_channels": 3,
+  "image_height": 512,
+  "image_width": 1024,
+  "hidden_dim": 256,
+  "num_encoder_layers": 4,
+  "learning_rate": 0.0001,
+  "num_epochs": 100,
+  "early_stopping_patience": 15,
+  "alpha": 0.5,
+  "beta": 0.5,
+  "gamma": 1.5,
+  "delta": 0.3,
+  "hardness_mode": "entropy",
+  "conflict_mode": "cosine",
+  "consistency_mode": "kl",
+  "diversity_mode": "euclidean",
+  "auto_balance_weights": false,
+  "adaptive_hyperparameter_scheduling": true,
+  "task_aware_weighting": true,
+  "adaptive_schedule": {
+    "early": {"alpha_mult": 1.0, "beta_mult": 0.3, "gamma_mult": 1.5, "delta_mult": 1.2},
+    "mid": {"alpha_mult": 1.1, "beta_mult": 1.0, "gamma_mult": 1.0, "delta_mult": 1.0},
+    "late": {"alpha_mult": 0.8, "beta_mult": 1.3, "gamma_mult": 0.8, "delta_mult": 0.8}
+  },
+  "task_aware_sensitivity": 1.05,
+  "seed": 42,
+  "save_model_path": "./runs/checkpoints/cityscapes",
+  "backbone": "hrnet",
+  "loss_weights": {
+    "segmentation": 1.0,
+    "depth": 1.0,
+    "instance": 1.0
+  },
+  "oracle_metrics": {
+    "segmentation": {"miou": 0.75},
+    "depth": {"rmse": 0.35},
+    "instance": {"ap": 0.40}
+  },
+  "task_types": {
+    "segmentation": "segmentation",
+    "depth": "regression",
+    "instance": "detection"
+  }
+}
