@@ -2,8 +2,9 @@
 # COCO 2-Stage Selection with Object-wise Hardness
 
 set -euo pipefail
+cd "$(dirname "$0")/.."
 
-CONFIG="configs/coco_2stage_selection_objectwise.json"
+CONFIG="configs/coco/coco_2stage_selection_objectwise.json"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 EXPERIMENT_NAME="coco_2stage_objectwise"
 SAVE_DIR="./runs/mtl_results/${TIMESTAMP}_${EXPERIMENT_NAME}"
@@ -28,9 +29,6 @@ echo ""
 
 # Create save directory
 mkdir -p "${SAVE_DIR}"
-
-# Run experiment
-cd /opt/multitask_active_learning
 
 SAVE_MODEL_PATH="./runs/checkpoints/${TIMESTAMP}_${EXPERIMENT_NAME}"
 

@@ -46,8 +46,8 @@
   },
   "task_aware_sensitivity": 1.05,
   "seed": 42,
-  "save_dir": "./results/rebuttal_linear_vs_ods",
-  "save_model_path": "./runs/checkpoints/rebuttal",
+  "save_dir": "./results/linear_vs_ods",
+  "save_model_path": "./runs/checkpoints/linear_vs_ods",
   "loss_weights": {
     "classification": 1.5,
     "detection": 1.3,

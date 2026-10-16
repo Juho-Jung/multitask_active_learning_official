@@ -65,7 +65,7 @@ class MultiTaskActiveLearningAcquisition:
         ctmi_use_mc_dropout: bool = True,
         # CTMI mode: 'covariance_positive' (high cov = high CTMI) or 'covariance_negative' (low cov = high CTMI)
         ctmi_mode: str = 'covariance_negative',
-        # Rebuttal ablations (E5/E6): how Hardness and CTMI are normalized and
+        # Score ablations: how Hardness and CTMI are normalized and
         # combined into the Stage-1 informativeness score.
         score_normalization: str = 'minmax',   # 'minmax' | 'zscore' | 'rank'
         score_combination: str = 'sum'         # 'sum' | 'product'

@@ -1,11 +1,11 @@
 #!/bin/bash
 # COCO 2-Stage Selection Optimized Experiment
-# 목표: 베이스라인 (diversity: 0.7728)을 초과하는 성능 달성
 
 set -e
+cd "$(dirname "$0")/.."
 
 # Configuration
-CONFIG_FILE="configs/coco_2stage_selection_optimized.json"
+CONFIG_FILE="configs/coco/coco_2stage_selection_optimized.json"
 SAVE_DIR="./runs/mtl_results"
 DEVICE="cuda:0"
 
@@ -26,8 +26,6 @@ echo "==========================================================================
 echo ""
 
 # Run experiment
-cd /opt/multitask_active_learning
-
 python -m multitask_active_learning.runner \
     --config "${CONFIG_FILE}" \
     --save_dir "${EXPERIMENT_DIR}" \

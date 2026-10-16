@@ -1,18 +1,18 @@
 #!/bin/bash
-# NYUv2 Baseline 실험 실행 스크립트
+# Run all classic AL baselines on NYUv2
 
-BASE_CONFIG="configs/nyuv2_2stage_selection.json"
+BASE_CONFIG="configs/nyuv2/nyuv2_2stage_selection.json"
 BASE_SAVE_DIR="./runs/mtl_results"
 EXPERIMENT_NAME="nyuv2_baselines_$(date +%Y%m%d_%H%M%S)"
 SAVE_DIR="${BASE_SAVE_DIR}/${EXPERIMENT_NAME}"
-DEVICE="cuda:3"
-TMP_CONFIG_DIR="/tmp/nyuv2_baseline_configs"
+DEVICE=${1:-"cuda:0"}
+TMP_CONFIG_DIR="$(mktemp -d)"
 
 # Baseline methods
 BASELINE_METHODS=("random" "uncertainty" "diversity" "coreset" "badge" "batchbald" "clustering")
 
 echo "=========================================="
-echo "NYUv2 Baseline 실험 시작"
+echo "NYUv2 Baseline Experiments"
 echo "=========================================="
 echo "Base config: $BASE_CONFIG"
 echo "Baseline methods: ${BASELINE_METHODS[@]}"
@@ -61,9 +61,9 @@ EOF
         --device "$DEVICE"
     
     if [ $? -eq 0 ]; then
-        echo "✅ $method 완료"
+        echo "✅ $method done"
     else
-        echo "❌ $method 실패"
+        echo "❌ $method failed"
     fi
     
     echo ""
@@ -73,6 +73,6 @@ done
 rm -rf "$TMP_CONFIG_DIR"
 
 echo "=========================================="
-echo "모든 Baseline 실험 완료!"
-echo "결과: $SAVE_DIR"
+echo "All baseline experiments completed!"
+echo "Results: $SAVE_DIR"
 echo "=========================================="

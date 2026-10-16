@@ -4,7 +4,7 @@ Analyze pretrained ResNet-50 comparison results and generate LaTeX table.
 
 Usage:
     python scripts/analyze_pretrained_comparison.py
-    python scripts/analyze_pretrained_comparison.py --results-dir results/rebuttal_pretrained
+    python scripts/analyze_pretrained_comparison.py --results-dir results/pretrained
 """
 
 import argparse
@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 RESULTS_ROOT = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "results", "rebuttal_pretrained"
+    "results", "pretrained"
 )
-REBUTTAL_DIR = os.path.join(
+TABLES_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "rebuttal"
+    "tables"
 )
 
 METHOD_DISPLAY = OrderedDict([
@@ -175,8 +175,8 @@ def main():
     print(f"\n{md}")
 
     latex = generate_latex(all_results)
-    os.makedirs(REBUTTAL_DIR, exist_ok=True)
-    tex_path = os.path.join(REBUTTAL_DIR, "pretrained_comparison_table.tex")
+    os.makedirs(TABLES_DIR, exist_ok=True)
+    tex_path = os.path.join(TABLES_DIR, "pretrained_comparison_table.tex")
     with open(tex_path, "w") as f:
         f.write(latex + "\n")
     print(f"\n  LaTeX table saved: {tex_path}")

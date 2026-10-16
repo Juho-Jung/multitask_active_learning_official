@@ -1,5 +1,5 @@
 #!/bin/bash
-# 모든 벤치마크 실험 실행 스크립트
+# Run all multi-task benchmarks
 
 SAVE_DIR="./runs/mtl_results"
 DEVICE="cuda:0"
@@ -14,7 +14,7 @@ echo "[1/4] COCO Benchmark"
 echo "Tasks: Classification, Detection, Segmentation"
 echo "=========================================="
 python run_al.py \
-    --config configs/coco_improved_ctmi.json \
+    --config configs/coco/coco_improved_ctmi.json \
     --experiment_name coco_ctmi_benchmark \
     --save_dir $SAVE_DIR/coco \
     --device $DEVICE
@@ -26,7 +26,7 @@ echo "Tasks: Segmentation, Depth, Instance Segmentation"
 echo "Inter-task correlation: Scene geometry sharing"
 echo "=========================================="
 python run_al.py \
-    --config configs/cityscapes_seg_depth_inst.json \
+    --config configs/cityscapes/cityscapes_seg_depth_inst.json \
     --experiment_name cityscapes_ctmi_benchmark \
     --save_dir $SAVE_DIR/cityscapes \
     --device $DEVICE
@@ -38,7 +38,7 @@ echo "Tasks: Segmentation, Depth, Surface Normal"
 echo "Inter-task correlation: 3D structure sharing"
 echo "=========================================="
 python run_al.py \
-    --config configs/nyuv2_seg_depth_normal.json \
+    --config configs/nyuv2/nyuv2_seg_depth_normal.json \
     --experiment_name nyuv2_ctmi_benchmark \
     --save_dir $SAVE_DIR/nyuv2 \
     --device $DEVICE

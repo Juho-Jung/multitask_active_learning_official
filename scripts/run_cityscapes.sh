@@ -1,12 +1,12 @@
 #!/bin/bash
-# Cityscapes 실험 실행 스크립트
+# Run the Cityscapes experiment
 # Tasks: Segmentation, Depth, Instance Segmentation
 # Inter-task correlation: Scene geometry sharing (strong correlation)
 
-CONFIG_FILE="configs/cityscapes_seg_depth_inst.json"
+CONFIG_FILE="configs/cityscapes/cityscapes_seg_depth_inst.json"
 EXPERIMENT_NAME="cityscapes_ctmi"
 SAVE_DIR="./runs/mtl_results/cityscapes"
-DEVICE="cuda:1"
+DEVICE=${1:-"cuda:0"}
 
 echo "=========================================="
 echo "Cityscapes Benchmark"
@@ -14,7 +14,6 @@ echo "=========================================="
 echo "Config: $CONFIG_FILE"
 echo "Tasks: Segmentation + Depth + Instance"
 echo "Correlation: Strong (Scene Geometry)"
-echo "Expected CTMI improvement: +4.5%"
 echo "=========================================="
 
 python run_al.py \
@@ -24,5 +23,5 @@ python run_al.py \
     --device $DEVICE
 
 echo "=========================================="
-echo "Cityscapes 실험 완료!"
+echo "Cityscapes experiment completed!"
 echo "=========================================="

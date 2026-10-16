@@ -3,9 +3,10 @@
 # Tasks: Semantic Segmentation (19 classes), Depth Estimation, Instance Segmentation
 
 set -e
+cd "$(dirname "$0")/.."
 
 # Configuration
-CONFIG_FILE="configs/cityscapes_2stage_selection.json"
+CONFIG_FILE="configs/cityscapes/cityscapes_2stage_selection.json"
 DEVICE=${1:-"cuda:0"}
 RESULTS_DIR="./runs/mtl_results"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
@@ -23,7 +24,6 @@ echo "=============================================="
 mkdir -p "${RESULTS_DIR}/${TIMESTAMP}_${EXPERIMENT_NAME}"
 
 # Run experiment
-cd /opt/multitask_active_learning
 
 python -u -m multitask_active_learning.runner \
     --config "${CONFIG_FILE}" \

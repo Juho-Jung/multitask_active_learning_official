@@ -736,11 +736,11 @@ class AblationRunner:
             model=self.model
         )
 
-        # NeurIPS rebuttal baselines: filter-then-diversify methods cited by reviewers
-        for rebuttal_method in ('cluster-margin', 'ppal', 'fass', 'd2pruning', 'ses',
+        # Filter-then-diversify baselines (ClusterMargin, PPAL, FASS, D2-Pruning, SES)
+        for fd_method in ('cluster-margin', 'ppal', 'fass', 'd2pruning', 'ses',
                                 'cluster-margin-ctmi'):
-            selectors[rebuttal_method] = make_selector(
-                rebuttal_method,
+            selectors[fd_method] = make_selector(
+                fd_method,
                 config_with_task_types,
                 model=self.model
             )

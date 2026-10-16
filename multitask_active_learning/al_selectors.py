@@ -347,7 +347,7 @@ class TwoStageSelector(BaseSelector):
 
 class LinearScalarizationSelector(BaseSelector):
     """
-    Linear Scalarization baseline for rebuttal.
+    Linear Scalarization baseline.
 
     Computes a single weighted sum: score = α·Hardness + γ·CTMI + δ·Diversity
     then selects top-k by score. This demonstrates that naively combining
@@ -555,7 +555,7 @@ def make_selector(
     elif name in ('cluster-margin', 'clustermargin'):
         if model is None:
             raise ValueError("Model required for cluster-margin selector")
-        from .rebuttal_selectors import ClusterMarginSelector
+        from .filter_diversify_selectors import ClusterMarginSelector
         return ClusterMarginSelector(
             model=model,
             task_types=config.get('task_types', {}),
@@ -566,7 +566,7 @@ def make_selector(
     elif name in ('cluster-margin-ctmi', 'cmctmi'):
         if model is None:
             raise ValueError("Model required for cluster-margin-ctmi selector")
-        from .rebuttal_selectors import ClusterMarginCTMISelector
+        from .filter_diversify_selectors import ClusterMarginCTMISelector
         return ClusterMarginCTMISelector(
             model=model,
             task_types=config.get('task_types', {}),
@@ -580,7 +580,7 @@ def make_selector(
     elif name == 'ppal':
         if model is None:
             raise ValueError("Model required for ppal selector")
-        from .rebuttal_selectors import PPALSelector
+        from .filter_diversify_selectors import PPALSelector
         return PPALSelector(
             model=model,
             task_types=config.get('task_types', {}),
@@ -595,7 +595,7 @@ def make_selector(
     elif name == 'fass':
         if model is None:
             raise ValueError("Model required for fass selector")
-        from .rebuttal_selectors import FASSSelector
+        from .filter_diversify_selectors import FASSSelector
         return FASSSelector(
             model=model,
             task_types=config.get('task_types', {}),
@@ -605,7 +605,7 @@ def make_selector(
     elif name in ('d2pruning', 'd2-pruning'):
         if model is None:
             raise ValueError("Model required for d2pruning selector")
-        from .rebuttal_selectors import D2PruningSelector
+        from .filter_diversify_selectors import D2PruningSelector
         return D2PruningSelector(
             model=model,
             task_types=config.get('task_types', {}),
@@ -617,7 +617,7 @@ def make_selector(
     elif name == 'ses':
         if model is None:
             raise ValueError("Model required for ses selector")
-        from .rebuttal_selectors import SESSelector
+        from .filter_diversify_selectors import SESSelector
         return SESSelector(
             model=model,
             task_types=config.get('task_types', {}),

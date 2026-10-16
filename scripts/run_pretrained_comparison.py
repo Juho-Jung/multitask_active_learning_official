@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """
-Rebuttal: Pretrained ResNet-50 Backbone Comparison
+Pretrained ResNet-50 Backbone Comparison
 
 Runs ODS vs. representative baselines with ImageNet-pretrained ResNet-50 encoder
 to show that ODS's advantage holds regardless of backbone strength.
-
-Addresses: Reviewer 3 (pretrained model 미사용)
 
 Usage:
     python scripts/run_pretrained_comparison.py                          # Run all methods
@@ -30,11 +28,11 @@ from multitask_active_learning.runner import AblationRunner
 
 BASE_CONFIG_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "configs", "coco_pretrained_resnet50.json"
+    "configs", "coco", "coco_pretrained_resnet50.json"
 )
 RESULTS_ROOT = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "results", "rebuttal_pretrained"
+    "results", "pretrained"
 )
 
 METHODS = OrderedDict([
@@ -122,7 +120,7 @@ def main():
         device = torch.device(args.device)
 
     print(f"{'#'*70}")
-    print(f"  Rebuttal: Pretrained ResNet-50 Backbone Comparison")
+    print(f"  Pretrained ResNet-50 Backbone Comparison")
     print(f"  Device: {device}")
     if device.type == "cuda":
         print(f"  GPU: {torch.cuda.get_device_name(device)}")

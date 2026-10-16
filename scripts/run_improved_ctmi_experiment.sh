@@ -1,13 +1,13 @@
 #!/bin/bash
-# Improved CTMI 실험 실행 스크립트
+# Run the covariance-based CTMI experiment
 
-CONFIG_FILE="configs/coco_improved_ctmi.json"
+CONFIG_FILE="configs/coco/coco_improved_ctmi.json"
 EXPERIMENT_NAME="improved_ctmi_covariance"
 SAVE_DIR="./runs/mtl_results"
 DEVICE="auto"
 
 echo "=========================================="
-echo "Improved CTMI (Covariance-based) 실험"
+echo "Improved CTMI (Covariance-based) Experiment"
 echo "=========================================="
 echo "Config: $CONFIG_FILE"
 echo "Experiment: $EXPERIMENT_NAME"
@@ -23,8 +23,8 @@ python run_al.py \
     --config $CONFIG_FILE \
     --experiment_name $EXPERIMENT_NAME \
     --save_dir $SAVE_DIR \
-    --device cuda:1
+    --device cuda:0
 
 echo "=========================================="
-echo "실험 완료!"
+echo "Experiment completed!"
 echo "=========================================="

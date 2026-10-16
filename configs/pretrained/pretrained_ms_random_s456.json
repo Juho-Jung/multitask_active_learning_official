@@ -1,0 +1,91 @@
+{
+  "dataset": "coco",
+  "coco_root": "./data/coco/images",
+  "coco_ann_file": "./data/coco/annotations/annotations/instances_train2017.json",
+  "coco_test_root": "./data/coco/images",
+  "coco_test_ann_file": "./data/coco/annotations/annotations/instances_val2017.json",
+  "tasks": [
+    "classification",
+    "detection",
+    "segmentation"
+  ],
+  "criteria": [
+    "hardness",
+    "consistency"
+  ],
+  "methods": [
+    "random"
+  ],
+  "third_component_mode": "ctmi",
+  "ctmi_use_mc_dropout": true,
+  "ctmi_num_samples": 10,
+  "pool_factor": 5,
+  "num_rounds": 30,
+  "batch_size": 32,
+  "train_batch_size": 128,
+  "eval_batch_size": 256,
+  "unlabeled_pool_size": 5000,
+  "initial_labeled_size": 100,
+  "num_classes": 80,
+  "num_boxes": 5,
+  "input_channels": 3,
+  "image_height": 224,
+  "image_width": 224,
+  "hidden_dim": 256,
+  "num_encoder_layers": 4,
+  "pretrained": true,
+  "learning_rate": 0.0001,
+  "num_epochs": 150,
+  "early_stopping_patience": 10,
+  "alpha": 1.0,
+  "beta": 0.0,
+  "gamma": 1.0,
+  "delta": 0.0,
+  "hardness_mode": "entropy",
+  "conflict_mode": "cosine",
+  "consistency_mode": "kl",
+  "diversity_mode": "euclidean",
+  "auto_balance_weights": false,
+  "adaptive_hyperparameter_scheduling": true,
+  "task_aware_weighting": true,
+  "adaptive_schedule": {
+    "early": {
+      "alpha_mult": 1.0,
+      "beta_mult": 0.3,
+      "gamma_mult": 0.3,
+      "delta_mult": 1.5
+    },
+    "mid": {
+      "alpha_mult": 1.1,
+      "beta_mult": 1.0,
+      "gamma_mult": 1.0,
+      "delta_mult": 1.0
+    },
+    "late": {
+      "alpha_mult": 0.8,
+      "beta_mult": 1.3,
+      "gamma_mult": 1.3,
+      "delta_mult": 1.0
+    }
+  },
+  "task_aware_sensitivity": 1.05,
+  "seed": 456,
+  "save_dir": "./runs/pretrained_multiseed/seed_456/random",
+  "save_model_path": "./runs/pretrained_multiseed/seed_456/random/checkpoints",
+  "loss_weights": {
+    "classification": 1.5,
+    "detection": 1.3,
+    "segmentation": 2.1
+  },
+  "oracle_metrics": {
+    "classification": {
+      "accuracy": 0.95
+    },
+    "detection": {
+      "accuracy": 0.9
+    },
+    "segmentation": {
+      "dice_mean": 0.7
+    }
+  }
+}

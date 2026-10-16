@@ -210,28 +210,33 @@ ClusterMargin, PPAL, FASS, D2-Pruning and SES, each over three seeds, plus ODS a
 under the same protocol:
 
 ```bash
-bash scripts/run_neurips_rebuttal_v2.sh
+bash scripts/run_unified_protocol.sh <config_name> <gpu_id>   # e.g. mt_ppal_s42 0
 # or a single run
-python run_al.py --config configs/neurips_rebuttal_v2/mt_ppal_s42.json          --device cuda:0
-python run_al.py --config configs/neurips_rebuttal_v2/ods_a2.5_g0.5_m15_s42.json --device cuda:0
-python run_al.py --config configs/neurips_rebuttal_v2/mt_random_s42.json        --device cuda:0
+python run_al.py --config configs/unified_protocol/mt_ppal_s42.json          --device cuda:0
+python run_al.py --config configs/unified_protocol/ods_a2.5_g0.5_m15_s42.json --device cuda:0
+python run_al.py --config configs/unified_protocol/mt_random_s42.json        --device cuda:0
 ```
 
 ### Ablations and sensitivity
 
 ```bash
-bash scripts/run_rebuttal_ablations.sh      # component ablation + alpha/gamma sensitivity
+bash scripts/run_ablations.sh               # component ablation + alpha/gamma sensitivity
 bash scripts/run_pretrained_comparison.sh   # scratch vs. ImageNet-pretrained encoder
 ```
 
-The full α / γ / m grid of the unified protocol is in `configs/neurips_rebuttal_v2/ods_a*_g*_m*_s*.json`.
+The full α / γ / m grid of the unified protocol is in `configs/unified_protocol/ods_a*_g*_m*_s*.json`.
+Score normalization / combination ablations (min-max vs. z-score vs. rank, sum vs. product)
+are in `configs/ablations/`.
 
 ### Multi-seed runs
 
-`configs/multiseed_rebuttal/` and `configs/neurips_rebuttal/` carry seeds 42 / 123 / 456:
+`configs/multiseed/` carries seeds 42 / 123 / 456 for ODS and the baselines, and
+`configs/pretrained/` the same for the ImageNet-pretrained encoder:
 
 ```bash
-python run_al.py --config configs/multiseed_rebuttal/ms_ods_s123.json --device cuda:0
+python run_al.py --config configs/multiseed/ms_ods_s123.json --device cuda:0
+# or
+bash scripts/run_multiseed.sh ms_ods_s123 0
 ```
 
 ## Configuration
@@ -263,14 +268,14 @@ Selection strategies accepted by `methods`:
 
 ```
 multitask_active_learning/
-├── acquisition.py         # CTMI + hardness acquisition
-├── al_selectors.py        # ODS / two-stage / linear-scalarization
-├── baseline_selectors.py  # random, uncertainty, diversity, coreset, BADGE, BatchBALD, ...
-├── rebuttal_selectors.py  # ClusterMargin, PPAL, FASS, D2-Pruning, SES
-├── datasets.py            # COCO / Cityscapes / NYUv2 multi-task loaders
-├── models.py              # shared encoder + per-task heads
-├── metrics.py             # per-task and MTL metrics
-├── runner.py              # AL loop, training, PCGrad
+├── acquisition.py                # CTMI + hardness acquisition
+├── al_selectors.py               # ODS / two-stage / linear-scalarization
+├── baseline_selectors.py         # random, uncertainty, diversity, coreset, BADGE, BatchBALD, ...
+├── filter_diversify_selectors.py # ClusterMargin, PPAL, FASS, D2-Pruning, SES
+├── datasets.py                   # COCO / Cityscapes / NYUv2 multi-task loaders
+├── models.py                     # shared encoder + per-task heads
+├── metrics.py                    # per-task and MTL metrics
+├── runner.py                     # AL loop, training, PCGrad
 └── utils.py
 
 configs/    every experiment configuration used in the paper
@@ -287,7 +292,7 @@ If you find this work useful, please cite:
 @inproceedings{jung2026deconstructing,
   title     = {Deconstructing Multi-Task Active Learning: The Paradox of Gradient
                Conflict and Orthogonal Decomposition},
-  author    = {Jung, Juho and Kang, Seoungjae and Han, Jinyoung},
+  author    = {Jung, Juho and Kang, Seongjae and Han, Jinyoung},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
   year      = {2026}
 }

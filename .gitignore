@@ -236,3 +236,6 @@ results/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated LaTeX tables
+tables/

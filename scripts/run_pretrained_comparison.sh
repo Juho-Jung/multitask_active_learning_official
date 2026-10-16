@@ -1,8 +1,7 @@
 #!/bin/bash
-# Rebuttal: Pretrained ResNet-50 Backbone Comparison
+# Pretrained ResNet-50 Backbone Comparison
 #
 # Compares ODS vs. baselines with ImageNet-pretrained ResNet-50 encoder.
-# Addresses Reviewer 3's concern about pretrained model usage.
 #
 # Usage:
 #   bash scripts/run_pretrained_comparison.sh                    # Run all
@@ -15,7 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
 echo "============================================"
-echo " Rebuttal: Pretrained ResNet-50 Comparison"
+echo " Pretrained ResNet-50 Comparison"
 echo "============================================"
 
 EXTRA_ARGS=""
@@ -40,4 +39,4 @@ if [ "$1" != "dry-run" ]; then
 fi
 
 echo ""
-echo " Done! Check results/rebuttal_pretrained/ and rebuttal/pretrained_comparison_table.tex"
+echo " Done! Check results/pretrained/ and tables/pretrained_comparison_table.tex"

@@ -1,13 +1,13 @@
 #!/bin/bash
-# Hardness + Conflict + Diversity 실험 실행 스크립트
+# Run the Hardness + Conflict + Diversity experiment
 
-CONFIG_FILE="configs/coco_hcd.json"
+CONFIG_FILE="configs/coco/coco_hcd.json"
 EXPERIMENT_NAME="hardness_conflict_diversity"
 SAVE_DIR="./runs/mtl_results"
 DEVICE="auto"
 
 echo "=========================================="
-echo "Hardness + Conflict + Diversity 실험"
+echo "Hardness + Conflict + Diversity Experiment"
 echo "=========================================="
 echo "Config: $CONFIG_FILE"
 echo "Experiment: $EXPERIMENT_NAME"
@@ -21,5 +21,5 @@ python run_al.py \
     --device $DEVICE
 
 echo "=========================================="
-echo "실험 완료!"
+echo "Experiment completed!"
 echo "=========================================="

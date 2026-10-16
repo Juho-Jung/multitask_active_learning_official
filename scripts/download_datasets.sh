@@ -1,5 +1,5 @@
 #!/bin/bash
-# MTL 벤치마크 데이터셋 다운로드 스크립트
+# Download script for the MTL benchmark datasets
 
 DATA_ROOT="./data"
 
@@ -7,15 +7,14 @@ echo "=========================================="
 echo "MTL Benchmark Dataset Download Script"
 echo "=========================================="
 
-# 1. NYUv2 (가장 간단)
+# 1. NYUv2 (direct download)
 echo ""
 echo "[1/3] NYUv2 Dataset"
 echo "=========================================="
 NYUV2_DIR="$DATA_ROOT/nyuv2"
 mkdir -p $NYUV2_DIR
 
-# 전처리된 버전 다운로드 (권장)
-# 옵션 1: 공식 mat 파일
+# Option 1: official labeled .mat file (recommended)
 if [ ! -f "$NYUV2_DIR/nyu_depth_v2_labeled.mat" ]; then
     echo "Downloading NYUv2 labeled dataset..."
     wget -P $NYUV2_DIR http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat
@@ -23,13 +22,13 @@ else
     echo "NYUv2 already exists."
 fi
 
-# 옵션 2: MTAN 전처리 버전 (더 사용하기 편함)
+# Option 2: MTAN preprocessed version
 echo ""
 echo "For preprocessed version, use:"
 echo "  git clone https://github.com/lorenmt/mtan"
 echo "  # Follow their data preparation instructions"
 
-# 2. Cityscapes (가입 필요)
+# 2. Cityscapes (registration required)
 echo ""
 echo "[2/3] Cityscapes Dataset"
 echo "=========================================="
@@ -49,7 +48,7 @@ echo "  pip install cityscapesscripts"
 echo "  export CITYSCAPES_DATASET=$CITYSCAPES_DIR"
 echo "  csDownload gtFine_trainvaltest.zip leftImg8bit_trainvaltest.zip"
 
-# 3. BraTS 2021 (가입 필요)
+# 3. BraTS 2021 (registration required)
 echo ""
 echo "[3/3] BraTS 2021 Dataset"
 echo "=========================================="

@@ -46,8 +46,8 @@
   },
   "task_aware_sensitivity": 1.05,
   "seed": 42,
-  "save_dir": "./results/rebuttal_pretrained",
-  "save_model_path": "./runs/checkpoints/rebuttal_pretrained",
+  "save_dir": "./results/pretrained",
+  "save_model_path": "./runs/checkpoints/pretrained",
   "loss_weights": {
     "classification": 1.5,
     "detection": 1.3,
