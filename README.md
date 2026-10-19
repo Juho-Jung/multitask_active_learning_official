@@ -10,8 +10,8 @@
 **NeurIPS 2026 (Poster)**
 
 [![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-4b44ce.svg)](#)
-[![Paper](https://img.shields.io/badge/Paper-coming%20soon-lightgrey.svg)](#)
-[![arXiv](https://img.shields.io/badge/arXiv-coming%20soon-lightgrey.svg)](#)
+[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b.svg)](https://arxiv.org/pdf/2610.23623)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.23623-b31b1b.svg)](https://arxiv.org/abs/2610.23623)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 </div>
@@ -290,11 +290,14 @@ If you find this work useful, please cite:
 
 ```bibtex
 @inproceedings{jung2026deconstructing,
-  title     = {Deconstructing Multi-Task Active Learning: The Paradox of Gradient
-               Conflict and Orthogonal Decomposition},
-  author    = {Jung, Juho and Kang, Seongjae and Han, Jinyoung},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2026}
+  title         = {Deconstructing Multi-Task Active Learning: The Paradox of Gradient
+                   Conflict and Orthogonal Decomposition},
+  author        = {Jung, Juho and Kang, Seongjae and Han, Jinyoung},
+  booktitle     = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year          = {2026},
+  eprint        = {2610.23623},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
 }
 ```
 
