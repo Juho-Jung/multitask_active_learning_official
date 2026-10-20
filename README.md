@@ -3,9 +3,9 @@
 # Deconstructing Multi-Task Active Learning
 ### The Paradox of Gradient Conflict and Orthogonal Decomposition
 
-**Juho Jung**<sup>1,*</sup> · **Seongjae Kang**<sup>2,*</sup> · **Jinyoung Han**<sup>1,†</sup>
+**Juho Jung**<sup>1,&#42;</sup> · **Seongjae Kang**<sup>2,&#42;</sup> · **Jinyoung Han**<sup>1,†</sup>
 
-<sup>1</sup>Sungkyunkwan University &nbsp; <sup>2</sup>KAIST<br><sup>*</sup>Equal contribution &nbsp; <sup>†</sup>Corresponding author
+<sup>1</sup>Sungkyunkwan University &nbsp; <sup>2</sup>KAIST<br><sup>&#42;</sup>Equal contribution &nbsp; <sup>†</sup>Corresponding author
 
 **NeurIPS 2026 (Poster)**
 
