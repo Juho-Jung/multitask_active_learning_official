@@ -10,6 +10,7 @@
 **NeurIPS 2026 (Poster)**
 
 [![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-4b44ce.svg)](#)
+[![Project Page](https://img.shields.io/badge/Project-Page-df3f2c.svg)](https://juho-jung.github.io/multitask_active_learning_official/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b.svg)](https://arxiv.org/pdf/2610.23623)
 [![arXiv](https://img.shields.io/badge/arXiv-2610.23623-b31b1b.svg)](https://arxiv.org/abs/2610.23623)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
