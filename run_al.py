@@ -5,7 +5,7 @@ CLI script for running Multi-Task Active Learning experiments.
 Usage:
     python run_al.py --config configs/cls_seg.json
     python run_al.py --config configs/cls_det_seg.json --save_dir ./my_results
-    python run_al.py --tasks classification --criteria hardness --methods random uncertainty ours
+    python run_al.py --tasks classification --criteria hardness --methods random,uncertainty,ours
 """
 
 import argparse
@@ -115,7 +115,7 @@ def main():
     parser.add_argument('--coco_ann_file', type=str, help='Path to COCO annotation JSON file')
 
     # Task and criteria options
-    parser.add_argument('--tasks', type=str, choices=['classification', 'detection', 'segmentation'],
+    parser.add_argument('--tasks', type=str,
                         help='Comma-separated list of tasks (classification,detection,segmentation)')
     parser.add_argument('--criteria', type=str, help='Comma-separated list of criteria (hardness,conflict,consistency)')
     parser.add_argument('--methods', '--method', type=str, dest='methods',
